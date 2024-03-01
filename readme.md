@@ -1,1 +1,1 @@
-first push 
+Start new project bitchiez

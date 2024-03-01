@@ -1,0 +1,69 @@
+.tableDashboard{
+    border: var(--border);
+    width: 100%;
+    .tableHead{
+        border: var(--border);
+        .col{ 
+            padding:  1.5rem 1.5rem 1.5rem 0;
+            background-color: var(--borderColor);
+            color: var(--txtDark);
+        }
+        .colNumber{
+            padding:  1.5rem 1.5rem 1.5rem 1.5rem;
+        }
+    }
+    tbody{
+      tr{
+          @include delay(slideInRight, 6, .35s); 
+      }
+    }
+
+    .td{
+        padding:  .45rem .45rem .45rem 0;
+        border-bottom: var(--border);
+
+    }
+    .tdNumber{
+        padding:  .45rem .45rem .45rem 1.5rem;
+    }
+    a.btn-success, a.btn-danger{
+        padding: .5rem;
+        color: var(--light)!important;  
+    }
+}
+.table-responsive::-webkit-scrollbar {
+    display: none;
+  }
+   
+  .table-responsive::-webkit-scrollbar-track {
+    display: none;
+  }
+   
+  .table-responsive::-webkit-scrollbar-thumb {
+    display: none;
+  }
+  @media only screen and (max-width: 575px) {
+    #dashboard{
+      .table-responsive{
+        &::-webkit-scrollbar {
+          width: .5rem!important;
+        }
+        &::-webkit-scrollbar-track {
+          background-color: var(--txtDark)!important;
+          outline: var(--border)!important;
+          //box-shadow: inset 0 0 var(--borderSize) var(--txtLight);
+        }
+        &::-webkit-scrollbar-thumb  {
+          background-color: var(--txtLight)!important;
+          //border-radius: var(--radiusL);
+          //outline: var(--border);
+        }
+        .pagination{
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+      }
+    } 
+  }
