@@ -10,7 +10,7 @@ import FirstLog from "@/views/auth/FirstLog.vue";
 import Dashboard from "@/views/auth/Dashboard.vue";
 
 //Tracks
-import CreateTrack from "@/views/auth/Tracks/CreateTrack.vue";
+//import CreateTrack from "@/views/auth/Tracks/CreateTrack.vue";
 import EditTrack from "@/views/auth/Tracks/EditTrack.vue";
 
 import CreateStepper from "@/views/auth/CreateStepper.vue";
@@ -95,11 +95,7 @@ const routes = [
     
     ]
   },
-  {
-    path: '/dashboard/tracks/create',
-    name: 'createTrack',
-    component: CreateTrack,
-  },
+
   {
     path: '/dashboard/author/create',
     name: 'createAuthor',
