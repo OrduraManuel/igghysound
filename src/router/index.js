@@ -1,35 +1,35 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '.src/views/Home.vue'
-import About from ".src/views/About.vue";
-import Services from ".src/views/Services.vue";
-import Contact from ".src/views/Contact.vue";
-import Selections from ".src/views/Selections.vue";
+import Home from './src/views/Home.vue'
+import About from "./src/views/About.vue";
+import Services from "./src/views/Services.vue";
+import Contact from "./src/views/Contact.vue";
+import Selections from "./src/views/Selections.vue";
 
 // auth
-import FirstLog from ".src/views/auth/FirstLog.vue";
-import Dashboard from ".src/views/auth/Dashboard.vue";
+import FirstLog from "./src/views/auth/FirstLog.vue";
+import Dashboard from "./src/views/auth/Dashboard.vue";
 
 //Tracks
-import CreateTrack from ".src/views/auth/Tracks/CreateTrack.vue";
-import EditTrack from ".src/views/auth/Tracks/EditTrack.vue";
+import CreateTrack from "./src/views/auth/Tracks/CreateTrack.vue";
+import EditTrack from "./src/views/auth/Tracks/EditTrack.vue";
 
-import CreateStepper from ".src/views/auth/CreateStepper.vue";
+import CreateStepper from "./src/views/auth/CreateStepper.vue";
 
 //Authors
-import CreateAuthor from ".src/views/auth/Authors/CreateAuthor.vue";
-import EditAuthor from ".src/views/auth/Authors/EditAuthor.vue";
+import CreateAuthor from "./src/views/auth/Authors/CreateAuthor.vue";
+import EditAuthor from "./src/views/auth/Authors/EditAuthor.vue";
 
 
 // dashboard
-import TracksDashboard from ".src/views/auth/Tracks/Table.vue";
-import AuthorsDashboard from ".src/views/auth/Authors/Table.vue";
+import TracksDashboard from "./src/views/auth/Tracks/Table.vue";
+import AuthorsDashboard from "./src/views/auth/Authors/Table.vue";
 
 
-import NotFound from ".src/views/404.vue";
-import NetworkError from '.src/views/NetworkError.vue'
+import NotFound from "./src/views/404.vue";
+import NetworkError from './src/views/NetworkError.vue'
 
 // firebase imports
-import { auth } from '.src/api/config'
+import { auth } from './src/api/config'
 
 const redirectToLogin = (next) => {
   next({
