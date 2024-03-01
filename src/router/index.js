@@ -102,13 +102,13 @@ const routes = [
     component: CreateAuthor,
   },
   {
-    path: '/dashboard/tracks/edit:id',
+    path: '/dashboard/tracks/edit/:id',
     name: 'editTrack',
     component: EditTrack,
     props: true,
   },
   {
-    path: '/dashboard/authors/edit:id',
+    path: '/dashboard/authors/edit/:id',
     name: 'editAuthor',
     component: EditAuthor,
     props: true,
