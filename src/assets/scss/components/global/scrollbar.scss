@@ -1,0 +1,13 @@
+body::-webkit-scrollbar {
+  width: .5rem;
+}
+   
+  body::-webkit-scrollbar-track {
+    background-color: var(--txtDark);
+    outline: var(--border);
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--txtLight);
+
+  }

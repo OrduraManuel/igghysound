@@ -1,0 +1,40 @@
+
+.section-closer {
+    position: fixed;
+    left: var(--marginL);
+    top: var(--marginT);
+    width: var(--dashboardBtnSize);
+    height: var(--dashboardBtnSize);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: calc(var(--dashboardBtnSize)/1.5);
+    color: rgba(0, 0, 0, 0.5);
+    background: transparent;
+          border: var(--border);
+          color: var(--borderColor);
+       transform: scale(1);
+    -webkit-transition: all 1.5s ease;
+       -moz-transition: all 1.5s ease;
+        -ms-transition: all 1.5s ease;
+         -o-transition: all 1.5s ease;
+            transition: all 1.5s ease;
+    z-index: 4;
+    &:hover{
+            opacity: 1;
+            background: var(--borderColor);
+            cursor: pointer;
+            color: var(txtDark);
+            transform: scale(.88);
+          }
+        
+    }
+    @media only screen and (max-width: 960px) {
+      .section-closer {
+        left: 0;
+        top: 0;
+        width: calc(var(--dashboardBtnSize) * 2);
+        height: calc(var(--dashboardBtnSize) * 2);
+      } 
+    }

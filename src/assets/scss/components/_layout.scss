@@ -1,0 +1,196 @@
+
+//trackSection
+@import "track/createTrack.scss";
+@import "track/editTrack.scss";
+
+//authSection
+@import "auth/firstLog.scss";
+@import "auth/cardAuth.scss";
+@import "auth/tableDashboard.scss";
+
+//----//Tracks
+@import "auth/tracks/tableTracks.scss";
+//----//Authors
+@import "auth/authors/tableAuthors.scss";
+
+//pages
+@import "pages/home.scss"; //fatt
+@import "pages/selections.scss"; //fatt
+
+//GlobalSection
+@import "global/borders.scss"; // fatt
+@import "global/navigation.scss"; // fattissimo
+@import "global/toBack.scss"; // fatt
+@import "global/masonry.scss"; // need to change css into scss
+@import "global/carouselz.scss";
+@import "global/sections.scss"; //fatt
+@import "global/heading.scss"; //fatt
+@import "global/heroTitle.scss";
+@import "global/creditz.scss";
+@import "global/scrollbar.scss";
+@import "global/loader.scss"; // fatt
+@import "global/btnCta.scss"; 
+
+
+
+
+/* 10. introduction */
+.center-container-home {
+        position: absolute;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        height: 100%;
+        }
+        
+        .center-block-home {
+        display: table-cell;
+        vertical-align: middle;
+        }
+        
+        .intro-wrapper {
+        margin-top: 17px;
+        }
+        .intro-wrapper .navigation{
+          position: relative;
+        }
+        
+        .intro-wrapper .navigation .navigation-center{
+          position: absolute;
+        }	
+        .unveil-time {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin: 0 auto 30px auto;
+        }
+        
+        @media only screen and (max-width: 880px) {
+          .unveil-time {
+            margin: 0 auto 20px auto;
+          }
+        }
+        
+        @media only screen and (max-width: 640px) {
+          .unveil-time {
+            margin: 0 auto 20px auto;
+          }
+        }
+        
+
+
+
+/* layout */
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    text-align: left;
+    color: #b2b2b2;
+    background: #363b48;
+     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+       -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    /* width: 100%; */
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    }
+    
+    a {
+    color: #ff264a;
+    text-decoration: none;
+    outline: none;
+     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+       -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    -webkit-transition: all 0.5s linear;
+       -moz-transition: all 0.5s linear;
+        -ms-transition: all 0.5s linear;
+         -o-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    }
+    
+    a:hover,
+    a:visited,
+    a:active,
+    a:focus {
+    color: #ff264a;
+    text-decoration: none;
+    outline: none;
+    font-weight: 600;
+    -webkit-transition: all 0.5s linear;
+       -moz-transition: all 0.5s linear;
+        -ms-transition: all 0.5s linear;
+         -o-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    }
+    
+    p {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    letter-spacing: 0.05em;
+    color: #b2b2b2;
+    line-height: 2;
+     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+       -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    }
+    
+    @media only screen and (max-width: 880px) {
+      p {
+        font-size: 15px;
+      }
+    }
+    
+    p a,
+    p a:hover {
+    color: #ff264a;
+    text-decoration: none;
+    outline: none;
+    font-weight: 600;
+    -webkit-transition: all 0.5s linear;
+       -moz-transition: all 0.5s linear;
+        -ms-transition: all 0.5s linear;
+         -o-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    }
+    
+    strong {
+    font-weight: bold;
+    }
+    
+    ::-moz-selection {
+    background: #ff264a;
+    color: #e5e5db;
+    }
+    
+    ::selection {
+    background: #ff264a;
+    color: #e5e5db;
+    }
+    
+    .nopadding {
+    padding: 0!important;
+    margin: 0!important;
+    }
+    

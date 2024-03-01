@@ -1,0 +1,145 @@
+#createStepper{
+    .ctaContainer{
+            bottom: calc(var(--marginB) * 2);
+            right: calc(var(--marginR) * 2);
+        @media  only screen and (max-width: 960px) {
+            width: 70vw!important;
+        }
+    }
+    .ctaContainer.prev{
+        bottom: calc(var(--marginB) + 2%);
+        left: calc(var(--marginL) + 2%);
+        @media  only screen and (max-width: 960px) {
+                left: 0rem!important;
+                width: 30vw!important;
+            }
+        a{
+            color: var(--txtLight);
+            &:hover{
+                    background: var(--txtLight);
+                    color: var(--txtDark);
+                    border-radius: 5px;
+                    box-shadow: 0 0 5px var(--txtLight),
+                                0 0 25px var(--txtLight),
+                                0 0 50px var(--txtLight),
+                                0 0 100px var(--txtLight);
+                    }
+            span{
+                &:nth-child(1){
+                        background: linear-gradient(90deg, transparent, var(--txtLight));
+                    }
+                &:nth-child(2){
+                        background: linear-gradient(90deg, transparent, var(--txtLight));
+                    }
+                &:nth-child(3){
+                        background: linear-gradient(90deg, transparent, var(--txtLight));
+                    }
+                &:nth-child(4){
+                        background: linear-gradient(90deg, transparent, var(--txtLight));
+                    }
+            }
+        }
+    
+    }
+}
+
+#selected{
+    .ctaContainer{
+        bottom: calc(var(--marginB) * 1.6);
+        right: calc(var(--marginR) * 1.5);
+    }
+}
+.ctaContainer{
+    position: absolute;
+    outline: none;
+    border: none;
+    background: transparent;
+    display: inline-block;
+    bottom: calc(var(--marginB) * 2);
+    right: calc(var(--marginR) / 2);
+    width: 14rem!important;
+    height: 3.5rem!important;
+    @media  only screen and (max-width: 960px) {
+        position: fixed;
+            bottom: 0rem!important;
+            right: 0rem!important;
+            width: 100vw!important;
+            height: 7vh!important;
+            backdrop-filter: blur(6px);
+            z-index:9;
+            padding: 0;
+                a{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                }
+            
+        }
+    a{
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px 20px;
+        color: var(--brandPrimary);
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        letter-spacing: 4px;
+            &:hover{
+                background: var(--brandPrimary);
+                color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 5px var(--brandPrimary),
+                            0 0 25px var(--brandPrimary),
+                            0 0 50px var(--brandPrimary),
+                            0 0 100px var(--brandPrimary);
+                }
+            span{
+                position: absolute;
+                display: block;
+                &:nth-child(1){
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 2px;
+                    background: linear-gradient(90deg, transparent, var(--brandPrimary));
+                    animation: btn-anim1 1s linear infinite;
+                }
+                &:nth-child(2) {
+                    top: -100%;
+                    right: 0;
+                    width: 2px;
+                    height: 100%;
+                    background: linear-gradient(180deg, transparent, var(--brandPrimary));
+                    animation: btn-anim2 1s linear infinite;
+                    animation-delay: .25s
+                }
+                &:nth-child(3) {
+                    bottom: 0;
+                    right: -100%;
+                    width: 100%;
+                    height: 2px;
+                    background: linear-gradient(270deg, transparent, var(--brandPrimary));
+                    animation: btn-anim3 1s linear infinite;
+                    animation-delay: .5s
+                }
+                &:nth-child(4) {
+                    bottom: -100%;
+                    left: 0;
+                    width: 2px;
+                    height: 100%;
+                    background: linear-gradient(360deg, transparent, var(--brandPrimary));
+                    animation: btn-anim4 1s linear infinite;
+                    animation-delay: .75s
+                    }
+            }    
+        }
+
+}

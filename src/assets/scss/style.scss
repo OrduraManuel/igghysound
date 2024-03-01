@@ -1,0 +1,48 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "variables.scss";
+@import "reset.scss";
+@import "resize.scss";
+@import "function.scss";
+@import "animations.scss";
+@import "components/layout.scss";
+
+
+#app {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  margin: 0;
+}
+@media  only screen and (max-width: 960px) {
+  #app{
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+}
+
+#FlashMessage{
+  //@include delay(slideInRight, 1, .5s);
+  position: absolute;
+  animation-duration: 1.5s;
+  background: rgba(13, 255, 0, 0.488);
+  backdrop-filter: blur(10px);
+  border-radius:25px;
+  font-size: 2rem;
+  top: 20px;
+  right: 20px;
+  color: white;
+  padding: 2rem 5rem;
+  z-index:999999;
+}
+
+
+.table{
+  td{
+  @include delay(fadeInUp, 10, .4s); 
+  }
+}
