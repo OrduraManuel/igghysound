@@ -72,7 +72,7 @@ async function findAuthor(){
           <div class="nameArtist" v-if="AuthorName">
             {{AuthorName}}
           </div>
-          <p class="newHit" v-if="props.thisTrack.isFav "> New Hit</p>
+          <!--<p class="newHit" v-if="props.thisTrack.isFav "> New Hit</p>-->
           <div class="spoty" :id="`spoty-${index}`"></div>
           <div class="bgHover"></div>
       </a >

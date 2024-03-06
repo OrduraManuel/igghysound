@@ -21,14 +21,14 @@ import ModalBtn from '@/components/modal/btnModal.vue'
             <div class="col-lg-12">
                 <h3 class="section-header">
                 Mi trovi via email qui: 
-                <a class="link-underline link-underline-contact contact-modal-launcher" href="mailto:contact@domainname.com">iwattz@igghysounds.com</a>
+                <a class="link-underline link-underline-contact contact-modal-launcher" href="mailto:info@igghysound.com">info@igghysound.com</a>
                 </h3><!-- section title end -->
             </div>
             <div class="col-lg-12">
                 <h3 class="section-header">
 
                 O su Instagram:
-                <a class="link-underline link-underline-contact contact-modal-launcher" href="https://www.instagram.com/igghysound/" target="_blank">iggysound</a>
+                <a class="link-underline link-underline-contact contact-modal-launcher" href="https://www.instagram.com/igghysound/" target="_blank">igghySound</a>
                 </h3><!-- section title end -->
             </div>
 <!--
