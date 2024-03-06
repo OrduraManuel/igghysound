@@ -24,7 +24,7 @@ const modules = [EffectFade, Autoplay]
         <Swiper-slide  class="kenburns-slide-1"></Swiper-slide>
         <Swiper-slide class="kenburns-slide-2"></Swiper-slide>
         <Swiper-slide class="kenburns-slide-3"></Swiper-slide>
-        <Swiper-slide class="kenburns-slide-4"></Swiper-slide>
+
   </Swiper>
 </div>
 
