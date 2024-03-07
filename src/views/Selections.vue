@@ -84,7 +84,7 @@ onUnmounted(() => {
         <div class="row">
             <div class="col-12">
                 <h2 class="section-heading-all">
-                    <span>00.</span> Portfolio tracce
+                    <span>00.</span> Credits
                 </h2>
             </div>
             <div class="inner-divider"></div><!-- divider end -->

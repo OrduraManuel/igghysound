@@ -76,7 +76,7 @@
           <span class="effect-navigation"
             ><span class="nav-indicator-wrapper"
               ><span class="nav-indicator"></span></span
-            >Portfolio tracce</span
+            >Credits</span
           >
         </router-link>
       </li>

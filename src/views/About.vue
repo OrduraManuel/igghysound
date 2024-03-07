@@ -17,7 +17,7 @@ import ModalBtn from '@/components/modal/btnModal.vue'
                     <div class="col-lg-12">
                         <h3 class="section-header">
                             <br>
-                            Mi occupo di Mix & Mastering da N anni per artisti ed etichette italiane e internazionali <br>
+                            Mi occupo di Mix & Mastering da 12 anni per artisti ed etichette italiane e internazionali <br>
                             <br>
                         </h3>
                     </div>
