@@ -25,7 +25,7 @@ import ModalBtn from '@/components/modal/btnModal.vue'
                     <h6 class="services ">
                         <span class="awesome">01.</span> Mandami una mail
                     </h6>
-                    <p>Contattami alla email: <a class="link-underline" href="#">work@igghysound.com</a> con il link ai file multitraccia del tuo brando da mixare e/o masterizzare.
+                    <p>Contattami alla email: <a class="link-underline" href="#">info@igghysound.com</a> con il link ai file multitraccia del tuo brando da mixare e/o masterizzare.
                         <br>Potresti usare piattaforme come:
                         <a class="link-underline" href="https://wetransfer.com/">WeTransfer</a>,  <a class="link-underline"
                         href="https://www.dropbox.com/">Dropbox</a> o  <a class="link-underline"
