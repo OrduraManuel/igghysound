@@ -1,4 +1,45 @@
 <script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+const dismissModal = ref()
+
+const userData = ref({
+  name: '',
+  category: '',
+  project: ''
+})
+const handleForm = async () => {
+  console.log('parte handleSubmit')
+    // Sostituisci 'ENDPOINT_DEL_SERVIZIO' con l'endpoint fornito dal servizio
+    await fetch('https://formspree.io/f/xeqyzaaa', {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json',
+    },
+      body: JSON.stringify({
+      name: userData.value.name,
+      category: userData.value.category,
+      project: userData.value.project,
+    }),
+    })
+    .then(()=>{
+      alert('Complimenti '+ userData.value.name +', il tuo messaggio è stato inviato!')
+      dismissModal.value.click()
+    }
+);
+/*
+      await login(email, password)
+        if(!error.value) {
+          alert('Welcome: '+ email +' you are back!')
+        setTimeout(()=>{
+        },3000)
+        router.push('/')
+      }else{
+        alert('Email or Pswd error ',  error)
+      }
+      */
+}
+
 </script>
 <template>
 <Teleport to="Body">
@@ -7,34 +48,34 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="ModalContact">Parlami di te</h5>
-            <a  data-bs-dismiss="modal" aria-label="Close">
+            <a  data-bs-dismiss="modal" aria-label="Close" ref="dismissModal">
               <i class="fal fa-2x fa-window-close"></i>
             </a>
         </div>
         <div class="modal-body">
-            <form action="mailto:info@igghysound.com" method="post" enctype="text/plain">
+            <form @submit.prevent="handleForm">
               <div class="containerInput">
                 <div class="input NameBox">
-                    <input type="text" name="" required="">
+                    <input type="text" name="" required="" v-model="userData.name">
                     <label>Nome</label>  
                 </div>
                 <div class="input CategoryBox">
-                    <input type="text" name="" required="">
+                    <input type="text" name="" required="" v-model="userData.category">
                     <label>Genere musicale</label>  
                 </div>
               </div>
                 <div class="input CategoryBox">
-                    <textarea rows="5" cols="80" name="talkToYou">
+                    <textarea rows="5" cols="80" name="talkToYou"  v-model="userData.project">
                     </textarea>
                     <label>Desrivi il tuo progetto</label> 
                 </div>
-                <a href="#"  type="submit" value="Send">
+                <button href="#"  type="submit" >
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     Invia
-                </a>
+                </button>
             </form>
         </div>
         </div>
@@ -61,18 +102,22 @@
 }
 form{
     background: black;
-    a{
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    color: var(--brandPrimary);
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px;
+    button{
+      outline: none;
+      border: none;
+      border-radius: 0;
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color: var(--brandPrimary);
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 40px;
+      letter-spacing: 4px;
+      background: transparent;
         &:hover{
             background: var(--brandPrimary);
             color: #fff;
