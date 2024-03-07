@@ -12,7 +12,7 @@
             </a>
         </div>
         <div class="modal-body">
-            <form>
+            <form action="mailto:info@igghysound.com" method="post" enctype="text/plain">
               <div class="containerInput">
                 <div class="input NameBox">
                     <input type="text" name="" required="">
@@ -28,7 +28,7 @@
                     </textarea>
                     <label>Desrivi il tuo progetto</label> 
                 </div>
-                <a href="#">
+                <a href="#"  type="submit" value="Send">
                     <span></span>
                     <span></span>
                     <span></span>
