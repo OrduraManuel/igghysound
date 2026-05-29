@@ -101,13 +101,12 @@
   <div class="row">
   <div class="col-12" id="isHit">
   <div class="checkLove" :class="{ isNotLove: !Track.isFav, isTrueLove: Track.isFav }">
-  <div :class="{ notLove: !Track.isFav, isHit: Track.isFav }">
+        <div :class="{ notLove: !Track.isFav, isHit: Track.isFav }">
   <p class="mb-2">Is your Hit this Track?</p>
-  <i :class="{
-  icon: true,
-  fas: Track.isFav,
-  far: !Track.isFav,
-  }" class="fa-heart fa-2x my-auto"></i>
+  <span
+  :class="{ 'is-filled': Track.isFav }"
+  class="heart-icon my-auto"
+  v-html="heartIcon"></span>
   <Field name="isHit" type="checkbox" id="checkLove" class="mt-3" v-model="Track.isFav"
   :value="'false'" />
   <label for="checkLove">checkLove</label>
@@ -170,6 +169,7 @@
  // manage modal
  import ModalChoice from "@/components/modal/modalCreate.vue";
  import ModalBtn from "@/components/modal/btnModal.vue";
+ import heartIcon from "@/assets/icon/fa-heart.svg?raw";
  
  // import BACK
  import toBack from "@/components/toBack.vue";
@@ -418,6 +418,25 @@
   });
  }
  </script>
+<style scoped lang="scss">
+.heart-icon {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 2.5rem;
+ height: 2.5rem;
+ line-height: 0;
+}
+
+.heart-icon :deep(svg) {
+ width: 2.1rem;
+ height: 2.1rem;
+}
+
+.heart-icon.is-filled :deep(path) {
+ fill: currentColor;
+}
+</style>
  
  <style lang="scss">
  input,

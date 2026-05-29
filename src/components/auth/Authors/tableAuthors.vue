@@ -8,6 +8,7 @@ import basicModal from '@/components/auth/basicModal.vue';
 import tableItem from '@/components/auth/Authors/tableItem.vue';
 
 import loader from '@/components/loader.vue';
+import spinnerIcon from '@/assets/icon/fa-spinner.svg?raw';
 
 
 const AuthorStore = useAuthorStore()
@@ -112,7 +113,7 @@ watchEffect( () =>{
     </table>   
     <table v-else>
         <loader>
-          <i class="fa fa-spinner" aria-hidden="true"></i>
+          <span class="loader-svg-icon" aria-hidden="true" v-html="spinnerIcon"></span>
         </loader>  
     </table>
   </div>
@@ -146,3 +147,17 @@ watchEffect( () =>{
   </template>
     <!--v-if=' sel !== null'-->
 </template>
+<style scoped lang="scss">
+.loader-svg-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  line-height: 0;
+}
+
+.loader-svg-icon :deep(svg) {
+  width: 4rem;
+  height: 4rem;
+}
+</style>

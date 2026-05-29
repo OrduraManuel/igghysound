@@ -1,5 +1,5 @@
 <script>
-  
+import heartIcon from '@/assets/icon/fa-heart.svg?raw';
 import { search, remove, update } from "@/api/crud";
 import { watchEffect } from "vue";
 import toBack from '@/components/toBack.vue'
@@ -10,7 +10,8 @@ export default {
     data() {
         return {
           Tracks: [],
-          };
+          heartIcon,
+        };
     },
     computed:{
 
@@ -60,9 +61,12 @@ export default {
               <p>By {{ Track.author }} </p>
             </div>
             <div class="toggling">
-                <i :class="{icon: true, 
-                  'fas': Track.isFav, 'far': !Track.isFav }" 
-                  class="fa-heart my-auto" @click="updateHandler('Tracks', Track.id, 'isFav', !Track.isFav)" ></i>
+                <span
+                  :class="{ 'is-filled': Track.isFav }"
+                  class="heart-icon my-auto"
+                  v-html="heartIcon"
+                  @click="updateHandler('Tracks', Track.id, 'isFav', !Track.isFav)"
+                ></span>
             </div>
           </div>
         </li>   
@@ -70,6 +74,23 @@ export default {
     </div>
 
   </template>
-  
+<style scoped lang="scss">
+.heart-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  line-height: 0;
+  cursor: pointer;
+}
 
-  
+.heart-icon :deep(svg) {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.heart-icon.is-filled :deep(path) {
+  fill: currentColor;
+}
+</style>

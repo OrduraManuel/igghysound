@@ -88,10 +88,10 @@
     >
       <li class="move">
         <router-link v-if="user" class="router dashboard fa-solid animate__animated animate__delay animate__backInUp" :to="`dashboard`">
-          <i class="fa-light fa-comment-music fa-solid animate__animated animate__delay-1s animate__fadeIn"></i>
+          <span class="nav-svg-icon animate__animated animate__delay-1s animate__fadeIn" v-html="commentMusicIcon"></span>
         </router-link>
         <router-link v-if="!user" class="router firstLog fa-solid animate__animated animate__delay-1s animate__backInUp" :to="`firstLog`">
-          <i class="fa-sharp fa-arrow-right-to-arc fa-solid animate__animated animate__delay-2s animate__fadeIn"></i>
+          <span class="nav-svg-icon animate__animated animate__delay-2s animate__fadeIn" v-html="arrowRightToArcIcon"></span>
         </router-link>
       </li>
     </ul>
@@ -102,7 +102,7 @@
     >
       <li class="move">
         <router-link v-if="user" class="router logout fa-solid animate__animated animate__delay-1s animate__backInUp" @click="handleClick" :to="`/`">
-          <i class="fa-solid fa-arrow-right-from-bracket fa-solid animate__animated animate__delay-1s animate__fadeIn"></i>
+          <span class="nav-svg-icon animate__animated animate__delay-1s animate__fadeIn" v-html="arrowRightFromBracketIcon"></span>
         </router-link>
       </li>
     </ul>
@@ -115,6 +115,9 @@ import { useRouter } from 'vue-router';
 import getUser from '@/auth/getUser';
 import { auth } from '@/api/config';
 import { signOut } from 'firebase/auth';
+import commentMusicIcon from '@/assets/icon/fa-comment-music.svg?raw';
+import arrowRightToArcIcon from '@/assets/icon/fa-arrow-right-to-arc.svg?raw';
+import arrowRightFromBracketIcon from '@/assets/icon/fa-arrow-right-from-bracket.svg?raw';
 
 const router = useRouter();
 const { user } = getUser();
@@ -170,3 +173,16 @@ watchEffect(async () => {
 
 });
 </script>
+<style scoped lang="scss">
+.nav-svg-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.nav-svg-icon :deep(svg) {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+</style>

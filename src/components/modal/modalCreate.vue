@@ -1,4 +1,5 @@
 <script setup>
+import windowCloseIcon from '@/assets/icon/fa-window-close.svg?raw';
 const props = defineProps({
   where: { type: String }
 })
@@ -12,7 +13,7 @@ let isWhere = '#'+props.where
         <div class="modal-header">
             <h5 class="modal-title" :id="props.where">Pick your choice</h5>
             <a  data-bs-dismiss="modal" aria-label="Close">
-              <i class="fal fa-2x fa-window-close"></i>
+              <span class="modal-close-icon" v-html="windowCloseIcon"></span>
             </a>
         </div>
         <div class="modal-body">
@@ -31,6 +32,18 @@ let isWhere = '#'+props.where
 .modal{
   backdrop-filter: blur(2px);
 }
+.modal-close-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.modal-close-icon :deep(svg) {
+  width: 2rem;
+  height: 2rem;
+}
+
 .modal-content{
   background: rgba(255,255,255,.3);//var(--textDark);
   border: var(--border);

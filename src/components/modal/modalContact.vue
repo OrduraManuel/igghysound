@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import windowCloseIcon from '@/assets/icon/fa-window-close.svg?raw';
 const dismissModal = ref()
 
 const userData = ref({
@@ -49,7 +50,7 @@ const handleForm = async () => {
         <div class="modal-header">
             <h5 class="modal-title" id="ModalContact">Parlami di te</h5>
             <a  data-bs-dismiss="modal" aria-label="Close" ref="dismissModal">
-              <i class="fal fa-2x fa-window-close"></i>
+              <span class="modal-close-icon" v-html="windowCloseIcon"></span>
             </a>
         </div>
         <div class="modal-body">
@@ -87,6 +88,18 @@ const handleForm = async () => {
 .modal{
   backdrop-filter: blur(2px);
 }
+.modal-close-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.modal-close-icon :deep(svg) {
+  width: 2rem;
+  height: 2rem;
+}
+
 .modal-content{
   background: rgba(255,255,255,.3);//var(--textDark);
   border: var(--border);

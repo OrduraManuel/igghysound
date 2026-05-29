@@ -17,16 +17,18 @@ import ModalBtn from '@/components/modal/btnModal.vue'
                     <div class="col-lg-12">
                         <h3 class="section-header">
                             <br>
-                            Mi occupo di Mix & Mastering dal 2016 per artisti ed etichette italiane e internazionali <br>
+                            Mi occupo di Mix & Mastering dal 2019 per artisti ed etichette italiane e internazionali <br>
                             <br>
                         </h3>
                     </div>
-                    <div class="col-md-4 section-txt">
-                        <p> Ho iniziato nel 2019 come fonico e Mix & Mastering Engineer per l'etichetta indipendente <a class="link-underline" href="https://moldrecordslabel.com/" target="_blank">MOLD Records</a> e dal 2020 collaboro con <a class="link-underline" href="http://www.rickycarioti.com/" target="_blank">Ricky Carioti</a>.</p>
+                    <div class="col-12 col-lg-6 section-txt">
+                        <p>Nato professionalmente nel 2019, inizia il suo percorso come producer, mixing e mastering engineer ricoprendo il ruolo di fonico residente per l’etichetta discografica <a class="link-underline" href="https://moldrecordslabel.com/" target="_blank">Mold Records</a>. In questo contesto lavora a stretto contatto con diversi artisti, sia locali che nazionali, sviluppando una solida esperienza nella produzione musicale, nella registrazione e nella finalizzazione dei brani.</p>
+                        <p>Nel 2020 incontra <a class="link-underline"  >Riky Carioti</a>, fonico di Elisa, con cui intraprende un percorso di formazione avanzata nel mixing e mastering. Da un rapporto inizialmente didattico nasce successivamente una collaborazione professionale su diversi progetti musicali.</p>
                     </div>
-                    <div class="col-md-4 section-txt mb-5">
-                        <p>Lavorando ai dischi di diversi artisti mainstream italiani su tracce hip-hop, pop moderno e rock.</p>
-                        <router-link :to="`selections`" class="btn btn-about" >Ascolta i miei lavori</router-link>
+                    <div class="col-12 col-lg-6 section-txt section-txt-last mb-5">
+                        <p>Nel corso degli anni ha lavorato con numerosi artisti emergenti e professionisti del settore, arrivando a contare centinaia di brani mixati e masterizzati. Tra le esperienze più rilevanti figura la collaborazione al mixing e mastering di “Ultimo Stadi 2023”, realizzata insieme a Riky Carioti.</p>
+                        <p>Il suo approccio combina sensibilità musicale, cura del dettaglio sonoro e visione produttiva, con l’obiettivo di valorizzare l’identità di ogni artista e trasformare ogni brano in un prodotto competitivo e professionale.</p>
+                        <router-link :to="`selections`" class="btn btn-about">Ascolta i miei lavori</router-link>
                     </div>
 
                 <ModalBtn :where="'ModalContact'" />
@@ -36,8 +38,17 @@ import ModalBtn from '@/components/modal/btnModal.vue'
 </template>
 <style scoped lang="scss">
 .section-txt{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    p{
+        margin: 0;
+    }
+
     .btn-about{
-        width: 50%;
+        width: fit-content;
+        min-width: 16rem;
         background: rgba(255,255,255,.08);
         color: var(--brandPrimary);
         border: 2px solid var(--brandPrimary);
@@ -76,6 +87,22 @@ import ModalBtn from '@/components/modal/btnModal.vue'
             right: 0;
             animation: specialFade 1s infinite;
             animation-delay: .25s;
+        }
+    }
+}
+
+.section-txt-last{
+    align-items: flex-start;
+}
+
+@media only screen and (max-width: 960px) {
+    .section-txt{
+        gap: 1.25rem;
+
+        .btn-about{
+            width: 100%;
+            min-width: 0;
+            text-align: center;
         }
     }
 }
