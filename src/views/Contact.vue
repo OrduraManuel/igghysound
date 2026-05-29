@@ -28,7 +28,7 @@ import ModalBtn from '@/components/modal/btnModal.vue'
                 <h3 class="section-header">
 
                 O su Instagram:
-                <a class="link-underline link-underline-contact contact-modal-launcher" href="https://www.instagram.com/igghysound/" target="_blank">igghySound</a>
+                <a class="link-underline link-underline-contact contact-modal-launcher" href="https://www.instagram.com/igghy_sound/" target="_blank">igghySound</a>
                 </h3><!-- section title end -->
             </div>
 <!--
