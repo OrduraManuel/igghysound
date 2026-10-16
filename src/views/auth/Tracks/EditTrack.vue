@@ -58,6 +58,7 @@ const AuthorName = ref()
 // function get thisTrack
 async function  searchHandler() {
     thisTrack.value = await TrackStore.getTrack(props.id)//get('Tracks', props.id);
+    thisTrack.value.isFav = thisTrack.value.isFav === true || thisTrack.value.isFav === 'true'
     console.log(thisTrack.value,'editttt this thisTrack.value')
     console.log(thisTrack.value.Src.Option,'thisTrack.value.Src.Option')
 
@@ -92,7 +93,6 @@ async function updateHandler(id, updateTrack) {
             params: { resource: error }
           })
         })
-    searchHandler();
 }
 
 // function pick your Img
@@ -221,10 +221,10 @@ const storagePath = `${uploadPath.value}/${file.name}`;
                                 </div>
                             </ModalChoice>
                         </div>
-                        <div class="col-6 col-md-2 number squareHole">
+                        <div class="col-6 col-md-2 hitToggle squareHole">
                             <div class="label mx-auto">
-                                <label for="title">E' una hit?</label>
-                                <input type="number" name="number" v-model="thisTrack.Number" :placeholder="thisTrack.Number" required> <!-- v-model="newNumber" :placeholder="props.thisTrack.Number" -->
+                                <label for="is-hit">È una hit?</label>
+                                <input id="is-hit" type="checkbox" role="switch" v-model="thisTrack.isFav">
                             </div>
                         </div>    
                         <div class="col-6 col-md-2 number squareHole">
@@ -354,6 +354,44 @@ const storagePath = `${uploadPath.value}/${file.name}`;
                     }
                 }
             }
+        .hitToggle{
+            input[type="checkbox"]{
+                appearance: none;
+                width: 2.75rem;
+                height: 1.5rem;
+                border-radius: 1rem;
+                background: var(--txtLight);
+                cursor: pointer;
+                position: relative;
+                transition: background .2s ease;
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: .25rem;
+                    left: .25rem;
+                    width: 1rem;
+                    height: 1rem;
+                    border-radius: 50%;
+                    background: var(--brandPrimary);
+                    transition: transform .2s ease;
+                }
+
+                &:checked{
+                    background: var(--brandPrimary);
+                }
+
+                &:checked::before{
+                    background: var(--txtLight);
+                    transform: translateX(1.25rem);
+                }
+
+                &:focus-visible{
+                    outline: 2px solid var(--brandPrimary);
+                    outline-offset: 2px;
+                }
+            }
+        }
         .link{
             margin-top: calc(var(--borderSize) - var(--borderSize)  - var(--borderSize));
         }

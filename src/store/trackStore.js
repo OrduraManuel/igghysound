@@ -65,6 +65,8 @@ export const useTrackStore = defineStore('trackStore', () => {
     const updateTrack = async (id, editTrack) =>{
       return await update('Tracks', id, editTrack)
       .then(response => {
+        const storedTrack = Tracks.value.find(track => track.id === id)
+        if (storedTrack) Object.assign(storedTrack, editTrack)
         console.log('questo è editTrack: ',editTrack)
         alert('Well done! You have edit this Track!')
       })
