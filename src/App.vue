@@ -1,12 +1,12 @@
 <script setup>
-import { inject, ref, watchEffect, onMounted } from 'vue'
+import { inject, watchEffect, onMounted } from 'vue'
 
 import { useTrackStore, useAuthorStore } from '@/store'
 import { storeToRefs } from 'pinia';
 
 import NewNav from "@/components/newNav.vue";
 import Borders from "@/components/borders.vue";
-import Swiping from "@/components/swiping.vue";
+import LiquidMeshBackground from "@/components/LiquidMeshBackground.vue";
 
 // GSTORE DA RIPOSIZIONARE
 
@@ -49,7 +49,7 @@ onMounted(() => {
 <template>
   <div class="container-fluid">
     <div id="FlashMessage" v-if="GStore.flashMessage"> {{ GStore.flashMessage }}</div>
-    <Swiping />
+    <LiquidMeshBackground />
     <NewNav />
     <Borders />
     <router-view 

@@ -82,10 +82,10 @@
 
 /* layout */
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-body);
     font-size: 16px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     text-align: left;
     color: #b2b2b2;
     background: #363b48;
@@ -102,7 +102,7 @@ body {
     padding: 0;
     line-height: 1.5;
     }
-    
+
     a {
     color: #ff264a;
     text-decoration: none;
@@ -140,9 +140,9 @@ body {
     
     p {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     text-align: left;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     color: #b2b2b2;
     line-height: 2;
      -webkit-font-smoothing: antialiased;
@@ -193,4 +193,4 @@ body {
     padding: 0!important;
     margin: 0!important;
     }
-    
+

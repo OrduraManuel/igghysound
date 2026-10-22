@@ -1,5 +1,6 @@
 import { createApp, reactive, provide } from 'vue'
 import { createPinia } from 'pinia'
+import './assets/scss/fonts.scss'
 import App from './App.vue'
 import router from './router'
 

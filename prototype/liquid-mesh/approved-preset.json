@@ -1,0 +1,277 @@
+{
+  "format": "igghysound-liquid-mesh-preset",
+  "version": 1,
+  "palette": {
+    "base": "#090412",
+    "violet": "#6213c5",
+    "magenta": "#e318e7",
+    "pink": "#ff3dcb",
+    "blue": "#1768d6",
+    "coral": "#ff7a40"
+  },
+  "controls": {
+    "intensity": 1.36,
+    "size": 0.95,
+    "speed": 1.43,
+    "distortion": 0.67,
+    "dimming": 0.86,
+    "grain": 0.101
+  },
+  "shader": {
+    "source": "\n  precision highp float;\n  varying vec2 vUv;\n  uniform vec2 uResolution;\n  uniform float uTime;\n  uniform float uIntensity;\n  uniform float uSize;\n  uniform float uDistortion;\n  uniform float uDimming;\n  uniform float uGrain;\n  uniform vec3 uBase;\n  uniform vec3 uViolet;\n  uniform vec3 uMagenta;\n  uniform vec3 uPink;\n  uniform vec3 uBlue;\n  uniform vec3 uCoral;\n\n  float hash21(vec2 p) {\n    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);\n  }\n\n  // Soft, unbounded light fields. There are no visible blob silhouettes.\n  float lightField(vec2 p, vec2 center, vec2 radius) {\n    vec2 q = (p - center) / (radius * uSize);\n    return exp(-dot(q, q) * 1.8);\n  }\n\n  void main() {\n    vec2 uv = vUv;\n    float aspect = uResolution.x / max(uResolution.y, 1.0);\n    vec2 p = vec2((uv.x - 0.5) * aspect, uv.y - 0.5);\n    float t = uTime;\n\n    // Coupled traveling waves advect the light fields. Their changing phase\n    // creates visible liquid motion without a moving mesh or hard outlines.\n    float broadX = sin(p.y * 4.4 + t * 0.64 + 0.6 * sin(p.x * 2.5 - t * 0.31));\n    float broadY = cos(p.x * 3.7 - t * 0.52 + 0.7 * sin(p.y * 3.1 + t * 0.37));\n    vec2 wave = vec2(\n      broadX + 0.42 * sin(p.y * 8.3 - p.x * 2.1 - t * 0.85),\n      broadY + 0.38 * cos(p.x * 6.8 + p.y * 2.7 + t * 0.73)\n    );\n    p += wave * (0.105 * uDistortion);\n\n    float left = -0.5 * aspect;\n    float right = 0.5 * aspect;\n    float mobile = 1.0 - smoothstep(0.7, 1.55, aspect);\n    float edgeScale = mix(1.0, 0.82, mobile);\n    vec3 color = uBase;\n\n    // The voucher's luminous top-left and right rim anchor the composition.\n    float violet = lightField(p, vec2(left + 0.14 * aspect + 0.065 * sin(t * 0.48), 0.33 + 0.055 * cos(t * 0.39)), vec2(0.36 * edgeScale, 0.38));\n    float pink = lightField(p, vec2(left + 0.11 * aspect + 0.075 * sin(t * 0.57 + 0.8), 0.30 + 0.065 * cos(t * 0.51)), vec2(0.19 * edgeScale, 0.22));\n    float rightMagenta = lightField(p, vec2(right - 0.09 * aspect + 0.09 * sin(t * 0.46 + 1.2), 0.015 + 0.075 * cos(t * 0.42)), vec2(0.27 * edgeScale, 0.38));\n    float rightCore = lightField(p, vec2(right - 0.13 * aspect + 0.055 * sin(t * 0.54 + 1.8), 0.04 + 0.09 * cos(t * 0.48)), vec2(0.10 * edgeScale, 0.13));\n    float blue = lightField(p, vec2(left + 0.02 * aspect + 0.055 * cos(t * 0.43), -0.41 + 0.055 * sin(t * 0.37)), vec2(0.26 * edgeScale, 0.27));\n    float lowerPink = lightField(p, vec2(left + 0.09 * aspect + 0.065 * sin(t * 0.38), -0.55), vec2(0.29 * edgeScale, 0.19));\n    float coral = lightField(p, vec2(right + 0.02 * aspect + 0.055 * sin(t * 0.36), 0.43 + 0.04 * cos(t * 0.47)), vec2(0.18 * edgeScale, 0.19));\n    float lowerBlue = lightField(p, vec2(right - 0.02 * aspect + 0.05 * cos(t * 0.41), -0.50), vec2(0.26 * edgeScale, 0.20));\n\n    color += uIntensity * (\n      uViolet * violet * 0.85 + uPink * pink * 0.95\n      + uMagenta * rightMagenta * 0.75 + uPink * rightCore * 0.70\n      + uBlue * blue * 0.55 + uMagenta * lowerPink * 0.30\n      + uCoral * coral * 0.46 + uBlue * lowerBlue * 0.36\n    );\n\n    // A broad dark mask protects the center, with a little room for the title.\n    vec2 center = vec2(0.0, 0.005);\n    vec2 q = (vec2((uv.x - 0.5) * aspect, uv.y - 0.5) - center) / vec2(0.46, 0.36);\n    float centerMask = exp(-dot(q, q) * 1.55);\n    color = mix(color, uBase, centerMask * uDimming);\n\n    // Stable fine dither plus low amplitude animated monochrome grain.\n    vec2 pixel = floor(uv * uResolution);\n    float dither = hash21(pixel) - 0.5;\n    float grain = hash21(pixel + vec2(mod(floor(t * 16.0), 1019.0) * 17.0, 91.0)) - 0.5;\n    color += vec3(dither * 0.004 + grain * uGrain);\n    gl_FragColor = vec4(clamp(color, 0.0, 1.0), 1.0);\n  }\n",
+    "parameters": {
+      "coordinateSystem": "aspect-scaled centered UV",
+      "fieldFalloff": 1.8,
+      "flow": {
+        "broadX": [
+          4.4,
+          0.64,
+          0.6,
+          2.5,
+          -0.31
+        ],
+        "broadY": [
+          3.7,
+          -0.52,
+          0.7,
+          3.1,
+          0.37
+        ],
+        "detailX": [
+          0.42,
+          8.3,
+          -2.1,
+          -0.85
+        ],
+        "detailY": [
+          0.38,
+          6.8,
+          2.7,
+          0.73
+        ],
+        "displacement": 0.105
+      },
+      "responsive": {
+        "aspectStart": 0.7,
+        "aspectEnd": 1.55,
+        "mobileLightScale": 0.82
+      },
+      "lights": [
+        {
+          "name": "violet",
+          "color": "violet",
+          "edge": "left",
+          "xBase": 0.14,
+          "yBase": 0.33,
+          "xDrift": [
+            0.065,
+            0.48,
+            0,
+            "sin"
+          ],
+          "yDrift": [
+            0.055,
+            0.39,
+            0,
+            "cos"
+          ],
+          "radius": [
+            0.36,
+            0.38
+          ],
+          "intensity": 0.85
+        },
+        {
+          "name": "pink",
+          "color": "pink",
+          "edge": "left",
+          "xBase": 0.11,
+          "yBase": 0.3,
+          "xDrift": [
+            0.075,
+            0.57,
+            0.8,
+            "sin"
+          ],
+          "yDrift": [
+            0.065,
+            0.51,
+            0,
+            "cos"
+          ],
+          "radius": [
+            0.19,
+            0.22
+          ],
+          "intensity": 0.95
+        },
+        {
+          "name": "rightMagenta",
+          "color": "magenta",
+          "edge": "right",
+          "xBase": -0.09,
+          "yBase": 0.015,
+          "xDrift": [
+            0.09,
+            0.46,
+            1.2,
+            "sin"
+          ],
+          "yDrift": [
+            0.075,
+            0.42,
+            0,
+            "cos"
+          ],
+          "radius": [
+            0.27,
+            0.38
+          ],
+          "intensity": 0.75
+        },
+        {
+          "name": "rightCore",
+          "color": "pink",
+          "edge": "right",
+          "xBase": -0.13,
+          "yBase": 0.04,
+          "xDrift": [
+            0.055,
+            0.54,
+            1.8,
+            "sin"
+          ],
+          "yDrift": [
+            0.09,
+            0.48,
+            0,
+            "cos"
+          ],
+          "radius": [
+            0.1,
+            0.13
+          ],
+          "intensity": 0.7
+        },
+        {
+          "name": "blue",
+          "color": "blue",
+          "edge": "left",
+          "xBase": 0.02,
+          "yBase": -0.41,
+          "xDrift": [
+            0.055,
+            0.43,
+            0,
+            "cos"
+          ],
+          "yDrift": [
+            0.055,
+            0.37,
+            0,
+            "sin"
+          ],
+          "radius": [
+            0.26,
+            0.27
+          ],
+          "intensity": 0.55
+        },
+        {
+          "name": "lowerPink",
+          "color": "magenta",
+          "edge": "left",
+          "xBase": 0.09,
+          "yBase": -0.55,
+          "xDrift": [
+            0.065,
+            0.38,
+            0,
+            "sin"
+          ],
+          "yDrift": [
+            0,
+            0,
+            0,
+            "none"
+          ],
+          "radius": [
+            0.29,
+            0.19
+          ],
+          "intensity": 0.3
+        },
+        {
+          "name": "coral",
+          "color": "coral",
+          "edge": "right",
+          "xBase": 0.02,
+          "yBase": 0.43,
+          "xDrift": [
+            0.055,
+            0.36,
+            0,
+            "sin"
+          ],
+          "yDrift": [
+            0.04,
+            0.47,
+            0,
+            "cos"
+          ],
+          "radius": [
+            0.18,
+            0.19
+          ],
+          "intensity": 0.46
+        },
+        {
+          "name": "lowerBlue",
+          "color": "blue",
+          "edge": "right",
+          "xBase": -0.02,
+          "yBase": -0.5,
+          "xDrift": [
+            0.05,
+            0.41,
+            0,
+            "cos"
+          ],
+          "yDrift": [
+            0,
+            0,
+            0,
+            "none"
+          ],
+          "radius": [
+            0.26,
+            0.2
+          ],
+          "intensity": 0.36
+        }
+      ],
+      "center": {
+        "x": 0,
+        "y": 0.005,
+        "radiusX": 0.46,
+        "radiusY": 0.36,
+        "falloff": 1.55
+      },
+      "grain": {
+        "ditherAmplitude": 0.004,
+        "framesPerSecond": 16,
+        "cycle": 1019,
+        "seedX": 17,
+        "seedY": 91
+      }
+    }
+  },
+  "renderer": {
+    "maxDpr": 1.75,
+    "maxBufferPixels": 2600000,
+    "frameIntervalMs": 32,
+    "deltaCapSeconds": 0.05,
+    "outputColorSpace": "LinearSRGBColorSpace",
+    "preserveDrawingBuffer": true
+  }
+}

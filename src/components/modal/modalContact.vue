@@ -116,6 +116,8 @@ const handleForm = async () => {
 form{
     background: black;
     button{
+      font-family: var(--font-ui);
+      font-weight: 600;
       outline: none;
       border: none;
       border-radius: 0;

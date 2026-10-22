@@ -23,14 +23,14 @@
 
 .fixed-navigation {
  position: fixed;
- font-family: 'Montserrat', sans-serif;
+ font-family: var(--font-ui);
  font-size: 1.1rem;
  display: flex;
  justify-content: center;
  align-items: flex-end;
  width: 10rem;
  height: 8rem;
- font-weight: 500;
+ font-weight: 600;
  letter-spacing: 0.05rem;
  font-style: normal;
  text-transform: uppercase;
@@ -52,6 +52,16 @@
          -moz-text-size-adjust: 100%;
           -ms-text-size-adjust: 100%;
    }
+ }
+
+ .navigation-left,
+ .navigation-right,
+ .navigation-bottom,
+ .navigation-center {
+   font-family: var(--font-navigation);
+   font-size: 1.35rem;
+   font-weight: 400;
+   letter-spacing: .08em;
  }
 
  .navigation-right,

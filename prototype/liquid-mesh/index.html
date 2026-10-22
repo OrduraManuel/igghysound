@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IgghySound · Liquid Mesh Study</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="stage" class="stage">
+      <div id="fallback" class="fallback" aria-hidden="true"></div>
+      <main class="preview" aria-label="Anteprima della leggibilità centrale">
+        <p class="eyebrow">IGGHYSOUND · BACKGROUND STUDY</p>
+        <h1>Mix <span>&</span><br />Mastering<br />Engineer</h1>
+        <p class="caption">Luci atmosferiche, centro protetto.</p>
+      </main>
+      <aside class="panel" aria-label="Controlli del prototipo">
+        <div class="panel-heading"><strong>Liquid Mesh</strong><button id="panel-toggle" type="button" aria-expanded="false" aria-controls="controls">Controlli</button></div>
+        <div id="controls" hidden>
+          <p>Studio isolato · un canvas, un passaggio</p>
+          <div id="color-controls"></div>
+          <label>Intensità <output id="intensity-value"></output><input name="intensity" type="range" min="0" max="2" step="0.01" /></label>
+          <label>Dimensione luci <output id="size-value"></output><input name="size" type="range" min="0.55" max="1.6" step="0.01" /></label>
+          <label>Flow speed <output id="speed-value"></output><input name="speed" type="range" min="0" max="2" step="0.01" /></label>
+          <label>Flow distortion <output id="distortion-value"></output><input name="distortion" type="range" min="0" max="1" step="0.01" /></label>
+          <label>Center dimming <output id="dimming-value"></output><input name="dimming" type="range" min="0" max="1" step="0.01" /></label>
+          <label>Film grain <output id="grain-value"></output><input name="grain" type="range" min="0" max="0.12" step="0.001" /></label>
+          <div class="actions"><button id="pause" type="button">Pausa</button><button id="reset" type="button">Preset approvato</button><button id="save" type="button">Salva PNG</button></div>
+          <div class="preset-tools">
+            <strong>Preset</strong>
+            <div class="actions"><button id="export-preset" type="button">Export Preset</button><button id="import-preset" type="button">Import Preset</button></div>
+            <label class="preset-file">Oppure importa un file JSON <input id="preset-file" type="file" accept=".json,application/json" /></label>
+            <textarea id="preset-json" rows="6" spellcheck="false" aria-label="Preset JSON" placeholder="Esporta i valori correnti oppure incolla qui un preset JSON"></textarea>
+            <div class="actions"><button id="copy-preset" type="button">Copia JSON</button><button id="download-preset" type="button">Scarica JSON</button></div>
+            <small id="preset-status" role="status"></small>
+          </div>
+        </div>
+        <small id="status" role="status"></small>
+      </aside>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

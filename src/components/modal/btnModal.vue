@@ -13,7 +13,7 @@ console.log(isWhere,'questo è il div')
               <span></span>
               <span></span>
               <span></span>
-              Contattami
+              <span class="cta-label">Contattami</span>
           </a>
       </div>
   </Teleport>
@@ -24,12 +24,15 @@ console.log(isWhere,'questo è il div')
         <span></span>
         <span></span>
         <span></span>
-        Contattami
+        <span class="cta-label">Contattami</span>
     </a>
   </div>
 
 </template>
 <style lang="scss" scoped>
-
-
+.ctaContainer .createBtn .cta-label {
+  position: static;
+  display: inline;
+  font-weight: inherit;
+}
 </style>

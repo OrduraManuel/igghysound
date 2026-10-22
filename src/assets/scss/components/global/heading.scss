@@ -21,6 +21,20 @@ h2.section-heading-all {
             backface-visibility: hidden;
     z-index: 2;
     }
+
+    :is(#about, #services, #contact, #selections) h2.section-heading-all {
+      font-family: var(--font-heading);
+      font-size: 2.45rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: .025em;
+    }
+
+    @media only screen and (max-width: 960px) {
+      :is(#about, #services, #contact, #selections) h2.section-heading-all {
+        font-size: 2.1rem;
+      }
+    }
     
     @media only screen and (max-width: 1199px) {
       h2.section-heading-all {
@@ -134,10 +148,10 @@ margin: 0 0 20px 0;
 
 h6.services,
 h6.contact {
-font-family: 'Montserrat', sans-serif;
+font-family: var(--font-ui);
 font-size: 14px;
 font-style: normal;
-font-weight: 700;
+font-weight: 600;
 text-transform: uppercase;
 text-align: left;
 letter-spacing: 0.05em;

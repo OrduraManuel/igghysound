@@ -28,7 +28,7 @@ import ModalBtn from '@/components/modal/btnModal.vue'
                     <div class="col-12 col-lg-6 section-txt section-txt-last mb-5">
                         <p>Nel corso degli anni ha lavorato con numerosi artisti emergenti e professionisti del settore, arrivando a contare centinaia di brani mixati e masterizzati. Tra le esperienze più rilevanti figura la collaborazione al mixing e mastering di “Ultimo Stadi 2023”, realizzata insieme a Riky Carioti.</p>
                         <p>Il suo approccio combina sensibilità musicale, cura del dettaglio sonoro e visione produttiva, con l’obiettivo di valorizzare l’identità di ogni artista e trasformare ogni brano in un prodotto competitivo e professionale.</p>
-                        <router-link :to="`selections`" class="btn btn-about">Ascolta i miei lavori</router-link>
+                        <router-link :to="`selections`" class="btn btn-about"><span class="btn-label">Ascolta i miei lavori</span></router-link>
                     </div>
 
                 <ModalBtn :where="'ModalContact'" />
@@ -47,13 +47,14 @@ import ModalBtn from '@/components/modal/btnModal.vue'
     }
 
     .btn-about{
+        font-family: var(--font-ui);
         width: fit-content;
         min-width: 16rem;
         background: rgba(255,255,255,.08);
         color: var(--brandPrimary);
         border: 2px solid var(--brandPrimary);
         text-transform: uppercase;
-        font-weight: 650;
+        font-weight: 600;
         overflow: hidden;
         position: relative;
         transition: all .55s ease-in-out;
