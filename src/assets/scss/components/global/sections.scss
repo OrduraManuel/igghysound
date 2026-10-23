@@ -41,7 +41,6 @@
   align-content: flex-start;
   align-items: center;
   align-self: center;
-  backdrop-filter: blur(10px);
   .row{
     padding: 0;
   }
@@ -56,6 +55,7 @@
   height: 100dvh;//calc(100dvh - 7dvh);
   overflow-y:auto;
   overflow-x:hidden;
+  backdrop-filter: blur(10px);
   //overflow-y: auto;
 
   }
